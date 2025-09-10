@@ -6,14 +6,24 @@
     <title>Comparing Videos</title>
 </head>
 <body>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JfJYHfrOGgQ" referrerpolicy="no-referrer-when-downgrade" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/JfJYHfrOGgQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
+    <style>
+        .videos {
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:5%;
+        }
+        .videoProperties {
+            margin-left: 5px;
+            margin-right: 5px;
+            width:35%;
+        }
+    </style>
+    <div class="videos">
+    <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+    <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    </div>
 </body>
-</html>
+</html><!--  -->
