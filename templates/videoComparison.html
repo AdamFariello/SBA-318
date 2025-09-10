@@ -6,7 +6,19 @@
     <title>Comparing Videos</title>
 </head>
 <body>
-    <style>
+    <div id="page">
+        <div class="videos">
+            <iframe class="videoProperties" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <iframe class="videoProperties" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <div id="playback">
+            <button id="button">Play</button>
+        </div>
+    </div>
+
+
+        <style>
         /*TODO: add styling to it*/
         /*TODO: figure out how to put this in a seperate file (express only sending .html currently*/
         #page {
@@ -31,7 +43,10 @@
         .videoProperties {
             margin-left: 5px;
             margin-right: 5px;
-            width:35%;
+
+            /*width:35%;*/ 
+            width:560px; 
+            height:315px;
         }
 
         #playback {
@@ -43,15 +58,17 @@
             width: 80px;
         }
     </style>
-    <div id="page">
-        <div class="videos">
-            <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-            <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-        </div>
 
-        <div id="playback">
-            <button id="button">Play</button>
-        </div>
-    </div>
+
+    <script>
+        let video1 = document.querySelectorAll("iframe")[0];
+        let video2 = document.querySelectorAll("iframe")[1];
+        let btn = document.getElementById("button");
+
+        btn.addEventListener("click", () => {
+            //TODO: fill
+        })
+    </script>
+
 </body>
 </html><!--  -->
