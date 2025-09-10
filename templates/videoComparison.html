@@ -7,10 +7,23 @@
 </head>
 <body>
     <style>
+        /*TODO: add styling to it*/
+        /*TODO: figure out how to put this in a seperate file (express only sending .html currently*/
+        #page {
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+
+            width:auto; /*TODO: highlight this as an example between auto vs fit-content*/
+        }
+        
         .videos {
             display:flex;
             flex-direction: row;
             justify-content: center;
+            
+            width:100%;
+
             margin-left: auto;
             margin-right: auto;
             margin-top:5%;
@@ -20,10 +33,25 @@
             margin-right: 5px;
             width:35%;
         }
+
+        #playback {
+            width: auto;
+            margin-left: auto;
+            margin-right:auto;
+        }
+        #button {
+            width: 80px;
+        }
     </style>
-    <div class="videos">
-    <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-    <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+    <div id="page">
+        <div class="videos">
+            <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            <iframe class="videoProperties" width="560" height="315" src="https://www.youtube.com/embed/cjIQcHyNrwE?si=Q9c9iygZCfAboCmV" frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <div id="playback">
+            <button id="button">Play</button>
+        </div>
     </div>
 </body>
 </html><!--  -->
