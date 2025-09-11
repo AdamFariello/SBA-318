@@ -4,5 +4,10 @@ let videos = [
     [
         ["https://www.youtube.com/watch?v=P00HMxdsVZI", "0:40"],
         ["https://www.youtube.com/watch?v=b8m9zhNAgKs", "0:26"]
+    ],
+    [
+        ["https://www.youtube.com/watch?v=ccEpTTZW34g", "0:19"],
+        ["https://www.youtube.com/watch?v=yCjJyiqpAuU", "0:19"]
     ]
 ]
+module.exports = videos;
