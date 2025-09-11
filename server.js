@@ -4,6 +4,7 @@ const PORT = 8000;
 
 const error = require("./middleware/errors");
 const videoRoutes = require("./routes/videos");
+const userRoutes = require("./routes/users");
 
 app.use(express.json());                          //TODO: Highlight in notes that you need this
 //app.use(express.urlencoded({ extended: true })) //      otherwise req.body = undefined
@@ -11,6 +12,7 @@ app.use(express.json());                          //TODO: Highlight in notes tha
 // Routes 
 //TODO: make it so you need to preface with /api
 app.use("/api/videos", videoRoutes);
+app.use("/api/users", userRoutes);
 
 
 // HATEOS

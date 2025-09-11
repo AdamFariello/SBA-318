@@ -33,3 +33,5 @@ let comments = [
         belivesTheySame: true
     }
 ]
+
+module.exports = comments;

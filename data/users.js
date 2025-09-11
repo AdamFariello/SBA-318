@@ -18,3 +18,5 @@ let users = [
         email: "duckduck@goose.com"
     }
 ]
+
+module.exports = users;
