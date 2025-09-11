@@ -27,5 +27,16 @@ let videos = [
             timestamp: "19" 
         } 
     },
+    {
+        id:2,
+        video1: {
+            link: "https://www.youtube.com/watch?v=QJJYpsA5tv8", 
+            timestamp: "0",
+        },
+        video2: {
+            link: "https://www.youtube.com/watch?v=U68MJz9DrI4",
+            timestamp: "65" 
+        } 
+    },
 ]
 module.exports = videos;

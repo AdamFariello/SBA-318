@@ -2,7 +2,7 @@ const express = require("express");
 const router = express.Router();
 const error = require("../middleware/errors");
 
-const videos = require("../data/videos");
+let videos = require("../data/videos");
 
 //TODO: check if it needs to be asycn
 
@@ -57,7 +57,7 @@ router.route("/:id") //TODO: highlight that "id" can be replaced w/ anything
         const videoComp = videos.find(v => v.id == id);
         
         if (videoComp) res.json({videoComp});
-        else next(error(400, "User not found")); //res.send("TODO: replace with real error");
+        else next(error(400, "Could not find video")); //res.send("TODO: replace with real error");
       })
       .patch((req, res, next) => { //TODO: add search paramater for if person only chaning one thing
         const videoEntry = videos.find((v,i) => {
@@ -74,5 +74,19 @@ router.route("/:id") //TODO: highlight that "id" can be replaced w/ anything
         if (videoEntry) res.json(videoEntry);
         else next();
       })
+      .delete((req,res,next) => {
+        const video = videos.find(e => {
+            if (e.id == req.params.id) {
+                videos = videos.filter(e => {
+                    return e.id != req.params.id;
+                })
+                return true;    
+            }
+        })
+        
+        if (video) res.json(video);
+        else next(error(400, "Video not found"));
+      })
+      ;
       
 module.exports = router;
