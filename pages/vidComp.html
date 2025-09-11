@@ -7,15 +7,7 @@
 </head>
 <body>
     <div id="page">
-        <div class="videos">
-            <!--
-            <iframe id="leftVideo" class="videoProperties" src="https://www.youtube.com/embed/P00HMxdsVZI" 
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-
-            <iframe id="rightVideo" class="videoProperties" src="https://www.youtube.com/embed/cjIQcHyNrwE" 
-                frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
-            -->
-
+        <div class="videosDiv">
             <iframe id="leftVideo" class="videoProperties" src="#videoOneInsert#" 
                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
 
@@ -23,13 +15,19 @@
                 frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
         </div>
 
-        <div id="playback"> 
-            <button id="button">Play</button>
+        <div id="midButtonDiv"> 
+            <button class="nextBtn">Next</button>
         </div>
     </div>
 
 
-        <style>
+    <style>
+        body {
+            /*https://coolors.co/palette/f1e8b8-f9e784-e58f65-d05353-191919*/
+            background: #f9e784;
+            background: linear-gradient(to left, #f9e784, #e58f65, #d05353);
+        }
+
         /*TODO: add styling to it*/
         /*TODO: figure out how to put this in a seperate file (express only sending .html currently*/
         #page {
@@ -40,7 +38,7 @@
             width:auto; /*TODO: highlight this as an example between auto vs fit-content*/
         }
         
-        .videos {
+        .videosDiv {
             display:flex;
             flex-direction: row;
             justify-content: center;
@@ -54,19 +52,30 @@
         .videoProperties {
             margin-left: 5px;
             margin-right: 5px;
-
-
             width:560px; 
             height:315px;
         }
 
-        #playback {
-            width: auto;
-            margin-left: auto;
-            margin-right:auto;
+
+        #buttonDiv {
+            width: 100%;
+            
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
         }
-        #button {
-            width: 80px;
+        .nextBtn {
+            /*TODO: remove button*/
+            display:flex;
+            justify-content: center;
+            margin-left: auto;
+            margin-right: auto;
+
+            width:5%;
+            height:50px;
+            font-size: larger;
+            text-align: center;
+            line-height: 43px;
         }
     </style>
 

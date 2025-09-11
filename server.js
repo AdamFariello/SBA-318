@@ -40,7 +40,7 @@ app.engine("html", (filePath, options, callback) => { //TODO: figure if this sho
 
 
 function createYtLink(video) {
-    //OPTIONAL: figure out way to reduce url (ehhh)
+    //OPTIONAL: figure out way to reduce url 
     let videoID = video.link.split("/");
     videoID = videoID[videoID.length - 1];
     if (videoID != -1) videoID = videoID.split("watch?v=")[1];
