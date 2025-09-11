@@ -2,6 +2,7 @@
 //TODO: figure out if this should be a list of arrays or list of 2D arrays
 let videos = [
     {
+        id: 0,
         video1: {
             title: "Lizzo - Truth Hurts",
             link: "https://www.youtube.com/watch?v=P00HMxdsVZI", 
@@ -14,6 +15,7 @@ let videos = [
         } 
     },
     {
+        id: 1,
         video1: {
             title: "Alphabet Song",
             link: "https://www.youtube.com/watch?v=ccEpTTZW34g", 
