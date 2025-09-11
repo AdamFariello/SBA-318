@@ -4,6 +4,18 @@ const error = require("../middleware/errors");
 
 const videos = require("../data/videos");
 
+//TODO: check if it needs to be asycn
+
+//Taken from:
+//https://stackoverflow.com/questions/19377262/regex-for-youtube-url
+//Didn't think of the idea of checking for "youtu.be" 
+const ytRE = RegExp("(www\.youtube\.com|youtu\.be)\/.+$");
+const ytTimeRE = RegExp("&t=.*");
+let reSearch = (re, s) => re.exec(s);
+
+const ytTimeNumRE = /\D/g;
+let reFiltNum = (s) => s.replaceAll(ytTimeNumRE, ""); 
+
 router.route("/")
       .get((req, res) => {
         res.json({videos});
@@ -12,21 +24,25 @@ router.route("/")
         let video1 = req.body.videoOne;
         let video2 = req.body.videoTwo;
 
-        
+        //TODO: put in a function outside of this
+        if (reSearch(ytRE, video1) && reSearch(ytRE, video2)) {
+            let timestamp1 = reSearch(ytTimeRE, video1);
+            if (timestamp1) timestamp1 = reFiltNum(timestamp1[0]);
 
-        console.log("test");
-        if (video1 && video2) {
-         
-            res.json("good");
+            let timestamp2 = reSearch(ytTimeRE, video2);
+            if (timestamp2) timestamp2 = reFiltNum(timestamp2[0]);
+            
+            console.log(`${video1} \n ${timestamp1}`);
+            console.log(`${video2} \n ${timestamp2}`);
+
+        } else {
+            next(error(409, "Insufficent Data, or inproperly formatted url"));
         }
       })
       ;
 
-/*
-//time
-let re = regExp("&t=.*")
-&t=
 
+/*
 https://www.youtube.com/watch?v=Fkxlf_cKuEY
 https://www.youtube.com/watch?v=Fkxlf_cKuEY&t=428s
 */
