@@ -48,9 +48,9 @@ function createYtLink(video) {
     const timeStamp = video.timestamp;
     return `https://www.youtube.com/embed/${videoID}?&amp;start=${timeStamp}`;
 }
+//function getTwoRandomVideos()
 app.get("/", (req, res) => {
     let video = videos[Math.round(Math.random() * (videos.length))];
-    console.log(video);
     let options = {
         //video1: "https://www.youtube.com/embed/P00HMxdsVZI",
         //video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
@@ -61,6 +61,17 @@ app.get("/", (req, res) => {
     res.render("vidComp", options);
 });
 
+/*
+//let btn = document.getElementById("nxtBtn");
+function changeVideos() {
+    console.log("test");
+    let options = {
+        video1: "https://www.youtube.com/embed/P00HMxdsVZI",
+        video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
+    };
+    res.render("vidComp", options);
+}
+*/
 
 
 // Routes 
