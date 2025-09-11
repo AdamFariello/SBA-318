@@ -17,20 +17,29 @@ app.use(express.urlencoded({ extended: true })) //      otherwise req.body = und
 
 
 // Server View Engine
+// TODO: COVER IN NOTES THAT LIVESERER DOESN'T SUPPORT YOUTUBE VIDEOS
 app.set("views", "./pages");
 app.set("view engine", "html"); //TODO: check to see how to send CSS scripts
 app.engine("html", (filePath, options, callback) => { //TODO: figure if this should be in seperate dir
     fs.readFile(filePath, (err, content) => {
         if (err) return callback(err);
 
-        let rendered = content.toString();
-        //if (options.title) {
-
+        let rendered;
+        if (options.video1 && options.video2) {
+            rendered = content.toString()
+                              .replace("#videoOneInsert#", options.video1)
+                              .replace("#videoTwoInsert#", options.video2)
+        } else {
+            rendered = content.toString();
+        }
         return callback(null, rendered);
     });
 });
 app.get("/", (req, res) => {
-    let options = {};
+    let options = {
+        video1: "https://www.youtube.com/embed/P00HMxdsVZI",
+        video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
+    };
     res.render("vidComp", options);
 });
 
