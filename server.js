@@ -8,6 +8,8 @@ const videoRoutes = require("./routes/videos");
 const userRoutes = require("./routes/users");
 const commentRoutes = require("./routes/comments");
 
+const videos = require("./data/videos");
+
 // Server Setup
 const app = express();
 const PORT = 8000;
@@ -35,11 +37,27 @@ app.engine("html", (filePath, options, callback) => { //TODO: figure if this sho
         return callback(null, rendered);
     });
 });
+
+
+function createYtLink(video) {
+    //OPTIONAL: figure out way to reduce url (ehhh)
+    let videoID = video.link.split("/");
+    videoID = videoID[videoID.length - 1];
+    if (videoID != -1) videoID = videoID.split("watch?v=")[1];
+
+    const timeStamp = video.timestamp;
+    return `https://www.youtube.com/embed/${videoID}?&amp;start=${timeStamp}`;
+}
 app.get("/", (req, res) => {
+    let video = videos[Math.round(Math.random() * (videos.length))];
+    console.log(video);
     let options = {
-        video1: "https://www.youtube.com/embed/P00HMxdsVZI",
-        video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
+        //video1: "https://www.youtube.com/embed/P00HMxdsVZI",
+        //video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
+        video1: createYtLink(video.video1),
+        video2: createYtLink(video.video2)
     };
+
     res.render("vidComp", options);
 });
 
