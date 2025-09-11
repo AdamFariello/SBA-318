@@ -5,9 +5,12 @@ const PORT = 8000;
 const error = require("./middleware/errors");
 const videoRoutes = require("./routes/videos");
 
+app.use(express.json());                          //TODO: Highlight in notes that you need this
+//app.use(express.urlencoded({ extended: true })) //      otherwise req.body = undefined
 
 // Routes 
-app.use("/videos", videoRoutes);
+//TODO: make it so you need to preface with /api
+app.use("/api/videos", videoRoutes);
 
 
 // HATEOS
@@ -19,18 +22,22 @@ app.get("/", (req, res) => {
             rel: "api",
             type:"GET"
         }]
-        
     })
 })
 
 app.get("/api", (req, res) => {
     res.json({
         links: [
-            {
-                href:"/api/videos",
-                rel:"users",
-                type:"GET"
-            }
+        {
+            href:"/api/videos",
+            rel:"videos",
+            type:"GET"
+        },
+        {
+            href: "/api/videos/:id",
+            rel: "videos",
+            type: "POST",
+        }
         ]
     })
 });

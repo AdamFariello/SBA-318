@@ -6,13 +6,30 @@ const videos = require("../data/videos");
 
 router.route("/")
       .get((req, res) => {
-        const links = [{
-            href: "videos/:id",
-            rel: ":id",
-            type: "GET",
-        }];
         res.json({videos});
-      });
+      })
+      .post((req, res, next) => {
+        let video1 = req.body.videoOne;
+        let video2 = req.body.videoTwo;
+
+        
+
+        console.log("test");
+        if (video1 && video2) {
+         
+            res.json("good");
+        }
+      })
+      ;
+
+/*
+//time
+let re = regExp("&t=.*")
+&t=
+
+https://www.youtube.com/watch?v=Fkxlf_cKuEY
+https://www.youtube.com/watch?v=Fkxlf_cKuEY&t=428s
+*/
 
 router.route("/:id") //TODO: highlight that "id" can be replaced w/ anything
       .get((req, res) => {
