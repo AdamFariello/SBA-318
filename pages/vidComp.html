@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comparing Videos</title>
+</head>
+<body>
+    <div id="page">
+        <div class="videos">
+            <iframe id="leftVideo" class="videoProperties" src="https://www.youtube.com/embed/cjIQcHyNrwE" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+            
+            <iframe id="rightVideo" class="videoProperties" src="https://www.youtube.com/embed/cjIQcHyNrwE" 
+                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
+        </div>
+
+        <div id="playback"> 
+            <button id="button">Play</button>
+        </div>
+    </div>
+
+
+        <style>
+        /*TODO: add styling to it*/
+        /*TODO: figure out how to put this in a seperate file (express only sending .html currently*/
+        #page {
+            display:flex;
+            flex-direction:column;
+            justify-content: center;
+
+            width:auto; /*TODO: highlight this as an example between auto vs fit-content*/
+        }
+        
+        .videos {
+            display:flex;
+            flex-direction: row;
+            justify-content: center;
+            
+            width:100%;
+
+            margin-left: auto;
+            margin-right: auto;
+            margin-top:5%;
+        }
+        .videoProperties {
+            margin-left: 5px;
+            margin-right: 5px;
+
+            /*width:35%;*/ 
+            width:560px; 
+            height:315px;
+        }
+
+        #playback {
+            width: auto;
+            margin-left: auto;
+            margin-right:auto;
+        }
+        #button {
+            width: 80px;
+        }
+    </style>
+
+
+    <script>
+        //let video1 = document.querySelectorAll("iframe")[0];
+        //let video2 = document.querySelectorAll("iframe")[1];
+        //let btn = document.getElementById("button");
+
+        /* TODO:figure out if this should be bothered with (currently no since need api key)
+        let leftYoutubePlayer, rightYoutubePlayer;
+        function onYouTubeIframeAPIReady() {
+            leftYoutubePlayer = new YT.Player('leftVideo', {
+                height: '315',
+                width: '560',
+                videoId: 'cjIQcHyNrwE'
+            });
+            rightYoutubePlayer = new YT.Player('rightVideo', {
+                height: '315',
+                width: '560',
+                videoId: 'cjIQcHyNrwE'
+            });
+        }
+
+        btn.addEventListener("click", () => {
+            let leftState = leftYoutubePlayer.getPlayerState();
+            let rightState = rightYoutubePlayer.getPlayerState();
+            
+            if (leftState == 1 || rightState == 1) {
+                leftYoutubePlayer.pauseVideo();
+                rightYoutubePlayer.pauseVideo();
+            } else {
+                leftYoutubePlayer.playVideo();
+                rightYoutubePlayer.playVideo();
+            }
+        })
+        */
+    </script>
+
+</body>
+</html>

@@ -1,8 +1,5 @@
 const express = require("express");
-const bodyParser = require("body-parser");
-
-const app = express();
-const PORT = 8000;
+const fs = require("fs");
 
 const error = require("./middleware/errors");
 const api = require("./middleware/api");
@@ -11,32 +8,42 @@ const videoRoutes = require("./routes/videos");
 const userRoutes = require("./routes/users");
 const commentRoutes = require("./routes/comments");
 
-
+// Server Setup
+const app = express();
+const PORT = 8000;
 app.use(express.json());                        //TODO: Highlight in notes that you need this
 app.use(express.urlencoded({ extended: true })) //      otherwise req.body = undefined
 
 
+
+// Server View Engine
+app.set("views", "./pages");
+app.set("view engine", "html"); //TODO: check to see how to send CSS scripts
+app.engine("html", (filePath, options, callback) => { //TODO: figure if this should be in seperate dir
+    fs.readFile(filePath, (err, content) => {
+        if (err) return callback(err);
+
+        let rendered = content.toString();
+        //if (options.title) {
+
+        return callback(null, rendered);
+    });
+});
+app.get("/", (req, res) => {
+    let options = {};
+    res.render("vidComp", options);
+});
+
+
+
 // Routes 
-//TODO: make it so you need to preface with /api
 app.use("/api", api)
 app.use("/api/videos", videoRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/comments", commentRoutes);
 
 
-
-// HATEOS
-app.get("/", (req, res) => {
-    //res.send("GET test");
-    res.json({
-        links: [{
-            href:"/api",
-            rel: "api",
-            type:"GET"
-        }]
-    })
-})
-
+// HATEOS links to help with api usage of the site
 //TODO: Convert this into a function
 app.get("/api", (req, res) => {
     res.json({links: {
