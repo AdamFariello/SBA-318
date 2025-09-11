@@ -30,6 +30,7 @@ router.route("/")
             "belivesTheySame": true
         }
         */
+       /*
         console.log(`
             ${req.body.test}
             ${req.body.videoCompID}
@@ -40,7 +41,8 @@ router.route("/")
             ${req.body.dislikes} 
             ${req.body.belivesTheySame}
         `);
-
+        */
+       
         if (req.body.videoCompID != undefined && req.body.comment != undefined 
             && req.body.likes != undefined && req.body.dislikes != undefined 
             && req.body.belivesTheySame ) {

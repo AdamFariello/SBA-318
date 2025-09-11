@@ -37,21 +37,51 @@ app.get("/", (req, res) => {
     })
 })
 
+//TODO: Convert this into a function
 app.get("/api", (req, res) => {
-    res.json({
-        links: [
+    res.json({links: {
+    videos : [
         {
             href:"/api/videos",
             rel:"videos",
-            type:"GET"
+            types:["GET", "POST"]
         },
         {
-            href: "/api/videos/:id",
-            rel: "videos",
-            type: "POST",
+            href:"/api/videos/:id",
+            rel:"videos",
+            types:["GET", "PATCH", "DELETE"]
+        },
+        {
+            href:"/api/videos:id/comments",
+            rel:"videos",
+            types:["GET"]
+        },
+    ],
+    users: [
+        {
+            href:"/api/users",
+            rel:"users",
+            types:["GET", "POST"]
+        },
+        {
+            href:"/api/users/:id",
+            rel:"users",
+            types:["GET"]
+        },
+        {
+            href:"/api/users/:id/comments",
+            rel:"users",
+            types:["GET"]
         }
-        ]
-    })
+    ],
+    comments: [
+        {
+            href:"/api/comments",
+            rel:"comments",
+            types:["GET", "POST"]
+        }
+    ]
+    }})
 });
 
 
