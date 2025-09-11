@@ -3,6 +3,7 @@ const router = express.Router();
 const error = require("../middleware/errors");
 
 let videos = require("../data/videos");
+let comments = require("../data/comments");
 
 //TODO: check if it needs to be asycn
 
@@ -86,6 +87,22 @@ router.route("/:id") //TODO: highlight that "id" can be replaced w/ anything
         
         if (video) res.json(video);
         else next(error(400, "Video not found"));
+      })
+      ;
+
+router.route("/:id/comments")
+      .get((req, res, next) => {
+        const id = req.params.id;
+        const videoComp = videos.find(v => v.id == id);
+        
+        if (videoComp) {
+            let videoComments = comments.filter(c => id != c.videoCompID);
+            //videoComments = videoComments.map(c => c["comment"]);
+            if (videoComments) res.json({videoComp, videoComments});
+            else next(error(400, "No comments posted for video")); //res.send("TODO: replace with real error");
+        } else { 
+            next(error(400, "Could not find video"));
+        }
       })
       ;
       
