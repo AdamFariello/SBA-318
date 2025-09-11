@@ -10,6 +10,19 @@ const videoRoutes = require("./routes/videos");
 app.use("/videos", videoRoutes);
 
 
+//Default HATEOS link
+app.get("/", (req, res) => {
+    //res.send("GET test");
+    res.json({
+        lins: [{
+            href:"/api",
+            rel: "api",
+            type:"GET"
+        }]
+        
+    })
+})
+
 app.listen(PORT, () => {
     console.log(`Server is running at locahost:${PORT}`);
 })
