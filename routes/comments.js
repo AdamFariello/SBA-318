@@ -18,6 +18,17 @@ router.route("/")
             "dislikes": 3,
             "belivesTheySame": true
         }
+
+        {
+            "videoCompID": 0,
+            "comment": {
+                "userID": 1,
+                "content": "Absolutely has to be the same!"
+            },
+            "likes": 50,
+            "dislikes": 3,
+            "belivesTheySame": true
+        }
         */
         console.log(`
             ${req.body.test}
@@ -45,7 +56,7 @@ router.route("/")
                         content: req.body.content
                     }
                     */
-                   comment: req.body.comment,
+                    comment: req.body.comment,
                     
                     likes: req.body.likes || 0,
                     dislikes: req.body.dislikes || 0,

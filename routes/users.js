@@ -3,6 +3,7 @@ const router = express.Router();
 const error = require("../middleware/errors");
 
 let users = require("../data/users");
+let comments = require("../data/comments");
 
 
 router.route("/")
@@ -34,6 +35,22 @@ router.route("/:id")
         
         if (user) res.json({user});
         else next(error(404, "Couldn't find user"));
+      })
+
+router.route("/:id/comments")
+      .get((req,res,next) => {
+        let user = users.find(u => u.id == req.params.id);
+        if (user) {
+            let commentList = comments.filter(c => {
+                //TODO: highlight the need of using "return" for objects
+                return c.comment.userID != req.params.id;
+            })
+
+            if (commentList) res.json({user, commentList});
+            else next(error(404, "Couldn't find user")); 
+        } else { 
+            next(error(404, "Couldn't find user"));
+        }
       })
 
 module.exports = router;
