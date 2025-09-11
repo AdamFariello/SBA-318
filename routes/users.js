@@ -28,5 +28,12 @@ router.route("/")
       })
       ;
 
+router.route("/:id")
+      .get((req, res, next) => {
+        let user = users.find(u => u.id == req.params.id);
+        
+        if (user) res.json({user});
+        else next(error(404, "Couldn't find user"));
+      })
 
 module.exports = router;
