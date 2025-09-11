@@ -32,9 +32,18 @@ router.route("/")
             let timestamp2 = reSearch(ytTimeRE, video2);
             if (timestamp2) timestamp2 = reFiltNum(timestamp2[0]);
             
-            console.log(`${video1} \n ${timestamp1}`);
-            console.log(`${video2} \n ${timestamp2}`);
-
+            let video = {
+                "id": videos.length,
+                "video1": {
+                    "link": video1,
+                    "timestamp": timestamp1 || "0"
+                },
+                "video2": {
+                    "link": video2,
+                    "timestamp": timestamp2 || "0"
+                }
+            };
+            res.json({video});
         } else {
             next(error(409, "Insufficent Data, or inproperly formatted url"));
         }
