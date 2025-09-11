@@ -5,6 +5,8 @@ const app = express();
 const PORT = 8000;
 
 const error = require("./middleware/errors");
+const api = require("./middleware/api");
+
 const videoRoutes = require("./routes/videos");
 const userRoutes = require("./routes/users");
 const commentRoutes = require("./routes/comments");
@@ -12,13 +14,11 @@ const commentRoutes = require("./routes/comments");
 
 app.use(express.json());                        //TODO: Highlight in notes that you need this
 app.use(express.urlencoded({ extended: true })) //      otherwise req.body = undefined
-/*
-app.use(bodyParser.json());                        //TODO: Highlight in notes that you need this
-app.use(bodyParser.urlencoded({ extended: true })) //      otherwise req.body = undefined
-*/
+
 
 // Routes 
 //TODO: make it so you need to preface with /api
+app.use("/api", api)
 app.use("/api/videos", videoRoutes);
 app.use("/api/users", userRoutes);
 app.use("/api/comments", commentRoutes);
