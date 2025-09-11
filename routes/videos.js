@@ -51,17 +51,28 @@ router.route("/")
       ;
 
 
-/*
-https://www.youtube.com/watch?v=Fkxlf_cKuEY
-https://www.youtube.com/watch?v=Fkxlf_cKuEY&t=428s
-*/
-
 router.route("/:id") //TODO: highlight that "id" can be replaced w/ anything
-      .get((req, res) => {
+      .get((req, res, next) => {
         const id = req.params.id;
         const videoComp = videos.find(v => v.id == id);
         
         if (videoComp) res.json({videoComp});
         else next(error(400, "User not found")); //res.send("TODO: replace with real error");
       })
+      .patch((req, res, next) => { //TODO: add search paramater for if person only chaning one thing
+        const videoEntry = videos.find((v,i) => {
+            if (v.id == req.params.id) {
+                for (let video in req.body) {
+                    for (let key in req.body[video]) {
+                        videos[i][video][key] = req.body[video][key];
+                    }
+                }
+                return true;
+            }
+        })
+
+        if (videoEntry) res.json(videoEntry);
+        else next();
+      })
+      
 module.exports = router;
