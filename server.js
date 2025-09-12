@@ -36,15 +36,23 @@ app.engine("html", (filePath, options, callback) => { //TODO: figure if this sho
                               .replace("#ID#", options.videoID)
         } else if (options.videoID != undefined && options.belief != undefined) {
             let relevantComments = comments.filter(e => {
-                e.videoCompID == options.videoID
+                return e.videoCompID == options.videoID
             })
-            if (relevantComments != []) {
+            if (relevantComments.length > 0) {
                 let randomEntry = Math.round(Math.random() * (relevantComments.length - 1));
-                let randomComment = relevantComments[Math.randomEntry];
+                let randomComment = relevantComments[randomEntry];
+                const userID = randomComment.comment.userID;
+                //console.log(userID);
+                //console.log(users);
+                //console.log(users[userID]);
+                const userName = users[userID].username;
 
-                const userID = randomComment.comment.id;
+                let belief = null;
+                if (options.belief) belief = "(Believer)";
+                else belief = "(Doubter)";
+
                 rendered = content.toString()
-                                  .replace("#AUTHOR#", users[userID].username)
+                                  .replace("#AUTHOR#", `${userName} -- ${belief}`)
                                   .replace("#COMMENT#", randomComment.comment.content)
                                   .replace("#LIKES#", randomComment.likes)
                                   .replace("#DISLIKE#", randomComment.dislikes)
@@ -89,10 +97,10 @@ app.get("/", (req, res) => {
 });
 
 app.get("/purple", (req, res, next) => {
-    if (req.params.videoID != undefined && req.params.belivesTheySame != undefined) {
+    if (req.query.videoID != undefined && req.query.belief != undefined) {
         let options = {
-            videoID: req.params.videoID,
-            belief: req.params.belivesTheySame
+            videoID: req.query.videoID,
+            belief: req.query.belief
         };
         res.render("comments", options)
     } else next(error(400, "Bad Request"));
