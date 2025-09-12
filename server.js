@@ -9,6 +9,8 @@ const userRoutes = require("./routes/users");
 const commentRoutes = require("./routes/comments");
 
 const videos = require("./data/videos");
+const users = require("./data/users");
+const comments = require("./data/comments")
 
 // Server Setup
 const app = express();
@@ -31,6 +33,10 @@ app.engine("html", (filePath, options, callback) => { //TODO: figure if this sho
             rendered = content.toString()
                               .replace("#videoOneInsert#", options.video1)
                               .replace("#videoTwoInsert#", options.video2)
+                              .replace("#ID#", options.videoID)
+        } else if (options.videoID != undefined && options.belief != undefined) {
+            rendered = content.toString()
+                              .replace()
         } else {
             rendered = content.toString();
         }
@@ -55,11 +61,22 @@ app.get("/", (req, res) => {
         //video1: "https://www.youtube.com/embed/P00HMxdsVZI",
         //video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
         video1: createYtLink(video.video1),
-        video2: createYtLink(video.video2)
+        video2: createYtLink(video.video2),
+        videoID: video.id
     };
 
     res.render("vidComp", options);
 });
+
+app.get("/comment", (req, res, next) => {
+    if (req.params.videoID != undefined && req.params.belivesTheySame != undefined) {
+        let options = {
+            videoID: req.params.videoID,
+            belief: req.params.belivesTheySame
+        };
+        res.render("comments", options)
+    } else next(error(400, "Bad Request"));
+})
 
 
 
