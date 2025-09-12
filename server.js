@@ -35,8 +35,27 @@ app.engine("html", (filePath, options, callback) => { //TODO: figure if this sho
                               .replace("#videoTwoInsert#", options.video2)
                               .replace("#ID#", options.videoID)
         } else if (options.videoID != undefined && options.belief != undefined) {
-            rendered = content.toString()
-                              .replace()
+            let relevantComments = comments.filter(e => {
+                e.videoCompID == options.videoID
+            })
+            if (relevantComments != []) {
+                let randomEntry = Math.round(Math.random() * (relevantComments.length - 1));
+                let randomComment = relevantComments[Math.randomEntry];
+
+                rendered = content.toString()
+                                  .replace("#AUTHOR#", "No Author")
+                                  .replace("#COMMENT#", "Comment")
+                                  .replace("#LIKES#")
+                                  .replace("#DISLIKE#")
+            } else {
+                rendered = content.toString()
+                                  .replace("#AUTHOR#", "No Author")
+                                  .replace("#COMMENT#", "Comment")
+                                  .replace("#LIKES#")
+                                  .replace("#DISLIKE#")
+            }
+
+            
         } else {
             rendered = content.toString();
         }
@@ -68,7 +87,7 @@ app.get("/", (req, res) => {
     res.render("vidComp", options);
 });
 
-app.get("/comment", (req, res, next) => {
+app.get("/purple", (req, res, next) => {
     if (req.params.videoID != undefined && req.params.belivesTheySame != undefined) {
         let options = {
             videoID: req.params.videoID,
