@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comment Section</title>
+</head>
+
+<style>
+body {
+    /*https://coolors.co/palette/f1e8b8-f9e784-e58f65-d05353-191919*/
+    background: #f9e784;
+    background: linear-gradient(to left, #f9e784, #e58f65, #d05353);
+}
+</style>
+
+<body>
+    <div class=="commentList">
+        <div class="commentStructure">
+            <div class="comment">
+                <p>#INSERT#</p>
+                <div class="likeCombine">
+                    <div class="like">
+                        <img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F024%2F997%2F864%2Foriginal%2Frealistic-thumb-up-hand-gesture-on-transparent-background-as-like-good-feedback-positive-reaction-validation-and-approval-generative-ai-png.png&f=1&nofb=1&ipt=63f5ca640a556547be4094c2173229ffe508efe0a9af3577da0ad59eb7e97ba4">
+                        <p>##</p>
+                    </div>
+                    <div class="like"> 
+                        <img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F045%2F822%2F185%2Fsmall_2x%2Fa-close-up-view-of-a-hand-showing-a-thumbs-down-gesture-with-a-transparent-background-png.png&f=1&nofb=1&ipt=5f7ee3dcdb53151abab36779c7f254b652174f48a204f89d3305aa92de42d201">
+                        <p>##</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        .commentList {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            width: 80%;
+            height: 80%;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .commentStructure {
+            display:flex;
+            flex-direction: column;
+            width: fit-content;
+            height:auto;
+
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .comment {
+            width:225px;
+            background-color: rgba(24, 11, 11, 0.268);
+        }
+
+        .like {
+            display: flex;
+            flex-direction: row;
+            width: fit-content;
+            height: auto;
+            margin-left:5px;
+        }
+        .icon {
+            width:30px;
+            height:30px;
+        }
+        .likeCombine {
+            display: flex;
+            flex-direction: row;
+
+            width:fit-content;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        p {
+            padding-left: 6px;
+        }
+
+    </style>
+</body>
+</html>
