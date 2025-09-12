@@ -5,8 +5,47 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Comparing Videos</title>
 </head>
+
+
 <body>
-    <div id="page">
+    <div id="dislikeComments">
+        <div class="commentBox">
+            <div class="comment">
+                #INSERT COMMENT#
+            </div>
+            <div class="vertical">
+                <img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F024%2F997%2F864%2Foriginal%2Frealistic-thumb-up-hand-gesture-on-transparent-background-as-like-good-feedback-positive-reaction-validation-and-approval-generative-ai-png.png&f=1&nofb=1&ipt=63f5ca640a556547be4094c2173229ffe508efe0a9af3577da0ad59eb7e97ba4">
+                <p>###</p>
+            </div>
+            <div class="vertical">
+                <img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F045%2F822%2F185%2Fsmall_2x%2Fa-close-up-view-of-a-hand-showing-a-thumbs-down-gesture-with-a-transparent-background-png.png&f=1&nofb=1&ipt=5f7ee3dcdb53151abab36779c7f254b652174f48a204f89d3305aa92de42d201" />">
+                <p>###</p>
+            </div>
+        </div>
+        
+        <style>
+            .commentBox {
+                display: flex;
+                flex-direction: row;
+                width:fit-content;
+            }
+
+            .icon {
+                width: 3%;
+            }
+
+            .vertical {
+                display:flex;
+                flex-direction: column;
+                padding: 0px;
+                margin:0px;
+            }
+
+        </style>
+
+    </div>
+
+    <div id="centerCol">
         <div class="videosDiv">
             <iframe id="leftVideo" class="videoProperties" src="#videoOneInsert#" 
                 title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
@@ -31,7 +70,7 @@
 
         /*TODO: add styling to it*/
         /*TODO: figure out how to put this in a seperate file (express only sending .html currently*/
-        #page {
+        #centerCol {
             display:flex;
             flex-direction:column;
             justify-content: center;

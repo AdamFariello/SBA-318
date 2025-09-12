@@ -61,17 +61,6 @@ app.get("/", (req, res) => {
     res.render("vidComp", options);
 });
 
-/*
-//let btn = document.getElementById("nxtBtn");
-function changeVideos() {
-    console.log("test");
-    let options = {
-        video1: "https://www.youtube.com/embed/P00HMxdsVZI",
-        video2: "https://www.youtube.com/embed/b8m9zhNAgKs"
-    };
-    res.render("vidComp", options);
-}
-*/
 
 
 // Routes 
