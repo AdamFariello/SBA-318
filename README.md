@@ -11,8 +11,17 @@ node server.js
 ```
 
 ## Usage
-Warning:
-If you get an error of a missing video1, <mark>REFRESH THE PAGE</mark>
+### Main website
+localhost:8000
+
+### API
+Go to the api.js file in middleware to grab an api key, and go into thunderclient to play with the api.
+For an example string use:
+localhost:8000/api/users/1/comments?api-key=AndYouDontSeemToUnderstand
+
+### Warnings
+* If you get an error of a missing video1, <mark>REFRESH THE PAGE</mark>
+* If the random comment button gives you nothing, that's because it's chooses randomly, and might not get a comment
 
 
 
