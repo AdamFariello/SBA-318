@@ -6,52 +6,24 @@
     <title>Comparing Videos</title>
 </head>
 
+<style>
+body {
+    /*https://coolors.co/palette/f1e8b8-f9e784-e58f65-d05353-191919*/
+    background: #f9e784;
+    background: linear-gradient(to left, #f9e784, #e58f65, #d05353);
+}
+</style>
 
 <body>
-    <div id="dislikeComments">
-        <div class="commentBox">
-            <div class="comment">
-                #INSERT COMMENT#
+    <div class="horizontal">
+        <div id="centerCol">
+            <div class="videosDiv">
+                <iframe id="leftVideo" class="videoProperties" src="#videoOneInsert#" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+
+                <iframe id="rightVideo" class="videoProperties" src="#videoTwoInsert#" 
+                    frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
             </div>
-            <div class="vertical">
-                <img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fpreviews%2F024%2F997%2F864%2Foriginal%2Frealistic-thumb-up-hand-gesture-on-transparent-background-as-like-good-feedback-positive-reaction-validation-and-approval-generative-ai-png.png&f=1&nofb=1&ipt=63f5ca640a556547be4094c2173229ffe508efe0a9af3577da0ad59eb7e97ba4">
-                <p>###</p>
-            </div>
-            <div class="vertical">
-                <img class="icon" src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fstatic.vecteezy.com%2Fsystem%2Fresources%2Fthumbnails%2F045%2F822%2F185%2Fsmall_2x%2Fa-close-up-view-of-a-hand-showing-a-thumbs-down-gesture-with-a-transparent-background-png.png&f=1&nofb=1&ipt=5f7ee3dcdb53151abab36779c7f254b652174f48a204f89d3305aa92de42d201" />">
-                <p>###</p>
-            </div>
-        </div>
-        
-        <style>
-            .commentBox {
-                display: flex;
-                flex-direction: row;
-                width:fit-content;
-            }
-
-            .icon {
-                width: 3%;
-            }
-
-            .vertical {
-                display:flex;
-                flex-direction: column;
-                padding: 0px;
-                margin:0px;
-            }
-
-        </style>
-
-    </div>
-
-    <div id="centerCol">
-        <div class="videosDiv">
-            <iframe id="leftVideo" class="videoProperties" src="#videoOneInsert#" 
-                title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
-
-            <iframe id="rightVideo" class="videoProperties" src="#videoTwoInsert#" 
-                frameborder="0" gesture="media" allow="encrypted-media" allowfullscreen></iframe>
         </div>
 
         <!--TODO: REMOVE DUMB BUTTON-->
@@ -60,24 +32,22 @@
         </div>
     </div>
 
-
     <style>
-        body {
-            /*https://coolors.co/palette/f1e8b8-f9e784-e58f65-d05353-191919*/
-            background: #f9e784;
-            background: linear-gradient(to left, #f9e784, #e58f65, #d05353);
+        #horizontal {
+            display:flex;
+            flex-direction: row;
         }
 
-        /*TODO: add styling to it*/
-        /*TODO: figure out how to put this in a seperate file (express only sending .html currently*/
         #centerCol {
             display:flex;
             flex-direction:column;
             justify-content: center;
-
-            width:auto; /*TODO: highlight this as an example between auto vs fit-content*/
+            
+            margin-left: auto;
+            margin-right:auto;
+            width:fit-content; /*TODO: highlight this as an example between auto vs fit-content*/
         }
-        
+            
         .videosDiv {
             display:flex;
             flex-direction: row;
@@ -118,42 +88,5 @@
             line-height: 43px;
         }
     </style>
-
-
-    <script>
-        //let video1 = document.querySelectorAll("iframe")[0];
-        //let video2 = document.querySelectorAll("iframe")[1];
-        //let btn = document.getElementById("button");
-
-        /* TODO:figure out if this should be bothered with (currently no since need api key)
-        let leftYoutubePlayer, rightYoutubePlayer;
-        function onYouTubeIframeAPIReady() {
-            leftYoutubePlayer = new YT.Player('leftVideo', {
-                height: '315',
-                width: '560',
-                videoId: 'cjIQcHyNrwE'
-            });
-            rightYoutubePlayer = new YT.Player('rightVideo', {
-                height: '315',
-                width: '560',
-                videoId: 'cjIQcHyNrwE'
-            });
-        }
-
-        btn.addEventListener("click", () => {
-            let leftState = leftYoutubePlayer.getPlayerState();
-            let rightState = rightYoutubePlayer.getPlayerState();
-            
-            if (leftState == 1 || rightState == 1) {
-                leftYoutubePlayer.pauseVideo();
-                rightYoutubePlayer.pauseVideo();
-            } else {
-                leftYoutubePlayer.playVideo();
-                rightYoutubePlayer.playVideo();
-            }
-        })
-        */
-    </script>
-
 </body>
 </html>
