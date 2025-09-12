@@ -10,6 +10,10 @@ Then enter the root directory (of the project), and run:
 node server.js
 ```
 
+## Usage
+Warning:
+If you get an error of a missing video1, <mark>REFRESH THE PAGE</mark>
+
 
 
 ## Reflection
