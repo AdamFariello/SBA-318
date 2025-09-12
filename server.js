@@ -42,11 +42,12 @@ app.engine("html", (filePath, options, callback) => { //TODO: figure if this sho
                 let randomEntry = Math.round(Math.random() * (relevantComments.length - 1));
                 let randomComment = relevantComments[Math.randomEntry];
 
+                const userID = randomComment.comment.id;
                 rendered = content.toString()
-                                  .replace("#AUTHOR#", "No Author")
-                                  .replace("#COMMENT#", "Comment")
-                                  .replace("#LIKES#")
-                                  .replace("#DISLIKE#")
+                                  .replace("#AUTHOR#", users[userID].username)
+                                  .replace("#COMMENT#", randomComment.comment.content)
+                                  .replace("#LIKES#", randomComment.likes)
+                                  .replace("#DISLIKE#", randomComment.dislikes)
             } else {
                 rendered = content.toString()
                                   .replace("#AUTHOR#", "No Author")
